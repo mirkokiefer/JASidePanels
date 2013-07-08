@@ -67,9 +67,6 @@ typedef enum _JASidePanelState {
 // style
 @property (nonatomic) JASidePanelStyle style; // default is JASidePanelSingleActive
 
-// push side panels instead of overlapping them
-@property (nonatomic, assign) BOOL pushesSidePanels;
-
 // size the left panel based on % of total screen width
 @property (nonatomic) CGFloat leftGapPercentage; 
 
@@ -142,7 +139,7 @@ typedef enum _JASidePanelState {
 @property (nonatomic, assign) BOOL centerPanelHidden;
 
 // The currently visible panel
-@property (nonatomic, weak, readonly) UIViewController *visiblePanel;
+@property (nonatomic, assign, readonly) UIViewController *visiblePanel;
 
 // If set to yes, "shouldAutorotateToInterfaceOrientation:" will be passed to self.visiblePanel instead of handled directly
 @property (nonatomic, assign) BOOL shouldDelegateAutorotateToVisiblePanel; // defaults to YES
@@ -168,4 +165,7 @@ typedef enum _JASidePanelState {
 @property (nonatomic, strong, readonly) UIView *rightPanelContainer;
 @property (nonatomic, strong, readonly) UIView *centerPanelContainer;
 
+#pragma mark - customizations
+/* Global variable for enabling toogling. needs to be activated for viewController */
++(void) enableToggling:(BOOL)enabled;
 @end
